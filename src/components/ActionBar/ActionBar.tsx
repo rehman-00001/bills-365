@@ -3,6 +3,7 @@ import AddIcon from '@material-ui/icons/Add';
 import React from 'react';
 import styled from 'styled-components';
 import { MonthLabels } from '../../utils';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 const TotalAmount = styled(Typography)`
   font-weight: bold;
@@ -18,6 +19,7 @@ interface ActionBarProps {
 
 const ActionBar: React.FC<ActionBarProps> = props => {
   const { total, onNewBill, month, year } = props;
+  const isMobile = useMediaQuery('(max-width:760px)');
   return (
     <Box
       m={3}
@@ -27,15 +29,26 @@ const ActionBar: React.FC<ActionBarProps> = props => {
       justifyContent="space-around"
     >
       <Box display="flex" alignItems="center">
-        <Typography variant="h6">{`Expenses on ${MonthLabels[month]}, ${year} : `}</Typography>
+        <Typography variant="h6">{`${MonthLabels[month]} ${year} : `}</Typography>
         <TotalAmount color="primary" variant="h5">
           {`\u20B9${total}`}
         </TotalAmount>
       </Box>
-      <Fab color="primary" variant="extended" size="large" onClick={onNewBill}>
-        <AddIcon />
-        New Bill
-      </Fab>
+      {isMobile ? (
+        <Fab color="primary" size="medium" onClick={onNewBill}>
+          <AddIcon />
+        </Fab>
+      ) : (
+        <Fab
+          color="primary"
+          variant="extended"
+          size="large"
+          onClick={onNewBill}
+        >
+          <AddIcon />
+          New Bill
+        </Fab>
+      )}
     </Box>
   );
 };

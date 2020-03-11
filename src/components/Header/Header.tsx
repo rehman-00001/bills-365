@@ -15,7 +15,7 @@ const TitleLabel = styled(Typography)`
 
 const LogoutButton = styled(Button)`
   && {
-    margin-right: 100px;
+    margin-right: 4px;
   }
 `;
 
@@ -36,7 +36,7 @@ const Header: React.FC<Props> = props => {
         >
           <MenuIcon />
         </IconButton>
-        <TitleLabel variant="h6">Bills 365</TitleLabel>
+        <TitleLabel variant="h6">Bill Tracker 365</TitleLabel>
         <LogoutButton color="inherit" onClick={props.logout}>
           Logout
         </LogoutButton>

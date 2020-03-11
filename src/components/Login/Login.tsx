@@ -19,7 +19,7 @@ const Login: React.FC<LoginProps> = props => {
       flexDirection="column"
     >
       <Box marginTop="120px">
-        <Typography variant="h1">Bills 365</Typography>
+        <Typography variant="h2">Bill Tracker 365</Typography>
       </Box>
       <Box marginTop="80px">
         <Button variant="contained" color="primary" onClick={onLogin}>
