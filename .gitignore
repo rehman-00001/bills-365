@@ -1,0 +1,4 @@
+build
+node_modules
+src/config/firebase-config.js
+yarn-error.log
